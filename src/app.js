@@ -15,4 +15,12 @@ app.use(express.urlencoded({extended: true, limit: "16kb"})); // to parse the en
 app.use(express.static("public")); // to store public data
 app.use(cookieParser()); // for performing CRUD operations on cookies in User's browser. 
 
+// routes import 
+import router from "./routes/user.routes.js";
+
+// routes declaration
+app.use("/api/v1/users", router);
+
+// http://localhost:8000/api/v1/users/register
+
 export { app };
