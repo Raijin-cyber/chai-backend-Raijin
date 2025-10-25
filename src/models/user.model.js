@@ -64,7 +64,7 @@ const userSchema = new Schema(
 userSchema.pre("save", async function(next) { // here we don't pass arrow function because in arrow function we don't have access to this, means their is no context to what we are running this pre-hook
     if(!this.isModified("password")) return next(); // agar password field modified nhi hai to next return kar do
 
-    this.password = bcrypt.hash(this.password, 10);
+    this.password = await bcrypt.hash(this.password, 10);
     next();
 })
 
