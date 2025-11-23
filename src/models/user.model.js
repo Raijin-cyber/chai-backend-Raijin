@@ -69,8 +69,8 @@ userSchema.pre("save", async function(next) { // here we don't pass arrow functi
 })
 
 // we can define custom methods, see the example below
-// we injecting methods to our schema
-userSchema.methods.isPasswordCorrect = async function (password) { // just like pre-hook has the access to the data before save after save, while upload. Similarly methods also have the to this and we can get the this.password (means the password of the user we are talkign about)
+// we are injecting methods to our schema
+userSchema.methods.isPasswordCorrect = async function (password) { // just like pre-hook has the access to the data before save after save, while upload. Similarly methods also have the access to this and we can get the this.password (means the password of the user we are talking about)
     return await bcrypt.compare(password, this.password);
 };
 
