@@ -7,7 +7,6 @@ const app = express();
 app.use(cors({
     origin: process.env.CORS_ORIGIN,
     credentials: true,
-    
 })); 
 
 app.use(express.json({limit: "16kb"})); // to make functionality of accepting JSON type data of max 16kb
@@ -18,7 +17,7 @@ app.use(cookieParser()); // for performing CRUD operations on cookies in User's 
 // routes import 
 import router from "./routes/user.routes.js";
 
-// routes declaration
+// user routes declaration
 app.use("/api/v1/users", router);
 
 // http://localhost:8000/api/v1/users/register
